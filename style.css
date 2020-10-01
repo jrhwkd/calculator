@@ -5,6 +5,7 @@
 html, body {
     width: 100%;
     height: 100%;
+    font-family: Arial;
 }
 
 .container {
@@ -17,24 +18,127 @@ html, body {
 }
 
 .calculator {
-    width: 25%;
-    height: 50%;
+    width: 300px;
+    height: 390px;
     background-color: cornflowerblue;
-    border-width: 1em;
-    border-color: #1e1e78;
+    border: 2px solid #1e1e78;
     border-radius: 15px;
     display: grid;
     grid-template-columns: repeat(4, auto);
-    grid-template-rows: 15% repeat(5, auto);
+    grid-template-rows: repeat(6, auto);
+    grid-gap: 5px;
+    padding: 10px;
 }
 
 .btn {
     color: white;
     background-color: #1e1e78;
+    border: 2px solid #1e1e78;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .display {
+    padding: 10px;
+    border: solid 1px #1e1e78;
+    border-radius: 10px;
     grid-area: 1/1/2/5;
-    background-color: grey;
+    background-color: silver;
     color: black;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    font-size: 40px;
+    line-height: 0;
+}
+
+h1{
+    position: relative;
+    display: inline-block;
+}
+
+.btnShadow {
+    box-shadow: -5px -5px 5px inset silver, 5px 5px 5px inset silver;
+}
+
+.oneBtn {
+    grid-area: 5/1/6/2;
+}
+
+.twoBtn {
+    grid-area: 5/2/6/3;
+}
+
+.threeBtn {
+    grid-area: 5/3/6/4;
+}
+
+.fourBtn {
+    grid-area: 4/1/5/2;
+}
+
+.fiveBtn {
+    grid-area: 4/2/5/3;
+}
+
+.sixBtn {
+    grid-area: 4/3/5/4;
+}
+
+.sevenBtn {
+    grid-area: 3/1/4/2;
+}
+
+.eightBtn {
+    grid-area: 3/2/4/3;
+}
+
+.nineBtn {
+    grid-area: 3/3/4/4;
+}
+
+.zeroBtn {
+    grid-area: 6/1/7/2;
+}
+
+.clearBtn {
+    grid-area: 2/3/3/4;
+}
+
+.enterBtn {
+    grid-area: 2/4/3/5;
+}
+
+.periodBtn {
+    grid-area: 6/2/7/3;
+}
+
+.negBtn {
+    grid-area: 6/3/7/4;
+}
+
+.plusBtn {
+    grid-area: 6/4/7/5;
+}
+
+.minusBtn {
+    grid-area: 5/4/6/5;
+}
+
+.multiplyBtn {
+    grid-area: 4/4/5/5;
+}
+
+.divideBtn {
+    grid-area: 3/4/4/5;
+}
+
+.onBtn {
+    grid-area: 2/1/3/2;
+}
+
+.offBtn {
+    grid-area: 2/2/3/3;
 }
