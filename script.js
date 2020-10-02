@@ -20,7 +20,12 @@ function multiply(a, b) {
 
 // division function
 function divide(a, b) {
-    let quotient = a / b;
+    let quotient;
+    if (b === 0) {
+        quotient = 'Don\'t divide by zero!';
+    } else {
+        quotient = a / b;
+    }
     return quotient;
 }
 
@@ -66,7 +71,7 @@ const offBtn = document.querySelector('.offBtn');
 
 // parameters
 let input = '';
-let operator = '+';
+let operator = '';
 let result = '0';
 
 // button click depress style
@@ -83,56 +88,67 @@ btns.forEach((div) => {
 // number and symbol button clicks
 oneBtn.addEventListener('click', function(e) {
     input += '1';
+    input = checkMaxInput(input);
     h1.textContent = input;
 });
 
 twoBtn.addEventListener('click', function(e) {
     input += '2';
+    input = checkMaxInput(input);
     h1.textContent = input;
 });
 
 threeBtn.addEventListener('click', function(e) {
     input += '3';
+    input = checkMaxInput(input);
     h1.textContent = input;
 });
 
 fourBtn.addEventListener('click', function(e) {
     input += '4';
+    input = checkMaxInput(input);
     h1.textContent = input;
 });
 
 fiveBtn.addEventListener('click', function(e) {
     input += '5';
+    input = checkMaxInput(input);
     h1.textContent = input;
 });
 
 sixBtn.addEventListener('click', function(e) {
     input += '6';
+    input = checkMaxInput(input);
     h1.textContent = input;
 });
 
 sevenBtn.addEventListener('click', function(e) {
     input += '7';
+    input = checkMaxInput(input);
     h1.textContent = input;
 });
 
 eightBtn.addEventListener('click', function(e) {
     input += '8';
+    input = checkMaxInput(input);
     h1.textContent = input;
 });
 
 nineBtn.addEventListener('click', function(e) {
     input += '9';
+    input = checkMaxInput(input);
     h1.textContent = input;
 });
 
 zeroBtn.addEventListener('click', function(e) {
     input += '0';
+    input = checkMaxInput(input);
     h1.textContent = input;
 });
 
 periodBtn.addEventListener('click', function(e) {
     input += '.';
+    input = checkMaxInput(input);
     h1.textContent = input;
 });
 
@@ -148,62 +164,114 @@ negBtn.addEventListener('click', function(e) {
 // update display
 function updateDisplay(result) {
     result = result.toString();
+    result = checkMaxDisplay(result);
     h1.textContent = result;
+}
+
+// round to 10 max symbols for display
+function checkMaxDisplay(result) {
+    console.log(result);
+    if (result.length > 10) {
+        result = Number(result);
+        result = result.toPrecision(8);
+        result = result.toString();
+        for (let i = result.length; i > 0; i--) {
+            if (result[i] === '0') {
+                result = result.slice(0, (result.length -1));
+            } else {
+                break;
+            }
+        }
+    }
+    return result;
+}
+
+// stop at ten max symbols for input
+function checkMaxInput(input) {
+    if (input.length > 10) {
+        input = input.slice(0, 10);
+    }
+    return input;
 }
 
 // operator function button clicks
 plusBtn.addEventListener('click', function(e) {
-    result = operate(operator, Number(result), Number(input));
-    updateDisplay(result);
-    operator = '+';
-    input = ''
+    if (operator === '') {
+        operator = '+';
+        result = input;
+    } else {
+        result = operate(operator, Number(result), Number(input));
+        updateDisplay(result);
+        operator = '+';
+        input = ''
+    }
 });
 
 minusBtn.addEventListener('click', function(e) {
-    result = operate(operator, Number(result), Number(input));
-    updateDisplay(result);
-    operator = '-';
-    input = ''
+    if (operator === '') {
+        operator = '-';
+        result = input;
+    } else {
+        result = operate(operator, Number(result), Number(input));
+        updateDisplay(result);
+        operator = '-';
+        input = ''
+    }
 });
 
 multiplyBtn.addEventListener('click', function(e) {
-    result = operate(operator, Number(result), Number(input));
-    updateDisplay(result);
-    operator = '*';
-    input = ''
+    if (operator === '') {
+        operator = '*';
+        result = input;
+    } else {
+        result = operate(operator, Number(result), Number(input));
+        updateDisplay(result);
+        operator = '*';
+        input = ''
+    }
 });
 
 divideBtn.addEventListener('click', function(e) {
-    result = operate(operator, Number(result), Number(input));
-    updateDisplay(result);
-    operator = '/';
-    input = ''
+    if (operator === '') {
+        operator = '/';
+        result = input;
+    } else {
+        result = operate(operator, Number(result), Number(input));
+        updateDisplay(result);
+        operator = '/';
+        input = ''
+    }
 });
 
 clearBtn.addEventListener('click', function(e) {
     result = 0;
     updateDisplay(result);
-    operator = '+';
+    operator = '';
     input = ''
 });
 
 enterBtn.addEventListener('click', function(e) {
-    result = operate(operator, Number(result), Number(input));
-    updateDisplay(result);
-    operator = '+';
-    input = ''
+    if (operator === '') {
+        operator = '';
+        result = input;
+    } else {
+        result = operate(operator, Number(result), Number(input));
+        updateDisplay(result);
+        operator = '';
+        input = ''
+    }
 });
 
 onBtn.addEventListener('click', function(e) {
     result = 0;
     updateDisplay(result);
-    operator = '+';
+    operator = '';
     input = ''
 });
 
 offBtn.addEventListener('click', function(e) {
     result = 0;
-    operator = '+';
+    operator = '';
     input = ''
     h1.textContent = input;
 });
