@@ -21,30 +21,41 @@ html, body {
     width: 300px;
     height: 390px;
     background-color: cornflowerblue;
-    border: 2px solid #1e1e78;
+    border: 2px solid navy;
     border-radius: 15px;
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(5, auto);
     grid-template-rows: repeat(6, auto);
     grid-gap: 5px;
     padding: 10px;
 }
 
-.btn {
+.numBtn {
     color: white;
-    background-color: #1e1e78;
-    border: 2px solid #1e1e78;
+    background-color: navy;
+    border: 2px solid navy;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.btn {
+    color: navy;
+    background-color: darkorange;
+    border: 2px solid navy;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .display {
     padding: 10px;
     border: solid 1px #1e1e78;
     border-radius: 10px;
-    grid-area: 1/1/2/5;
+    grid-area: 1/1/2/6;
     background-color: silver;
     color: black;
     display: flex;
@@ -108,7 +119,7 @@ h1{
 }
 
 .enterBtn {
-    grid-area: 2/4/3/5;
+    grid-area: 2/5/3/6;
 }
 
 .periodBtn {
@@ -120,19 +131,19 @@ h1{
 }
 
 .plusBtn {
-    grid-area: 6/4/7/5;
+    grid-area: 6/4/7/6;
 }
 
 .minusBtn {
-    grid-area: 5/4/6/5;
+    grid-area: 5/4/6/6;
 }
 
 .multiplyBtn {
-    grid-area: 4/4/5/5;
+    grid-area: 4/4/5/6;
 }
 
 .divideBtn {
-    grid-area: 3/4/4/5;
+    grid-area: 3/4/4/6;
 }
 
 .onBtn {
@@ -141,4 +152,8 @@ h1{
 
 .offBtn {
     grid-area: 2/2/3/3;
+}
+
+.backBtn {
+    grid-area: 2/4/3/5;
 }
